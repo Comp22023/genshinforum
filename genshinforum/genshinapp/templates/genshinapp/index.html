@@ -1,0 +1,71 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
+	<link rel="stylesheet" href="{% static 'js/bxslider/dist/jquery.bxslider.css'%}">
+	<title>Форум по игре Genshin Impact | Главная страница</title>
+
+</head>
+<body>
+	<div class="header">
+		<div class="logo">
+		<a href="{% url 'main' %}"><img src="{%static 'img/loho.png'%}" alt=""></a>
+	</div>
+		<div class="header_buts">
+			<ul>
+				<li>
+					<p> <a href="#">ГЛАВНАЯ</a></p>
+				</li>
+			</ul>
+		</div>
+		<div class="header_buts">
+			<ul>
+				<li>
+			<p> <a href="#">ТЕМЫ</a></p>
+				</li>
+			</ul>
+		</div>
+		<div class="header_buts">
+			<ul>
+				<li>
+			<p> <a href="#">РЕГИСТРАЦИЯ</a></p>
+				</li>
+			</ul>
+		</div>
+		<div class="profile">
+			<div class="profile_nick">
+				<p>ПСЕВДОНИМ</p>
+			</div>
+			<div class="profile_img">
+				<img src="{% static 'img/Pimon.png' %}" alt="Аватар пользователя">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="maintxt">
+			<img src="{%static 'img/glogo.png'%}" alt="">
+		</div>
+		<div class="description">
+			<div class="aboutforum">
+				<p>Genshin Impact, — это китайская условно-бесплатная онлайн-игра, которая в 2020 году разорвала интернет и стала настоящим подростковым хитом. По сюжету, брат и сестра застревают в волшебном мире и теряют друг друга. На этом и построена завязка: игроку нужно найти потерянного брата либо сестру. Но заниматься этим сразу необязательно. Почему? Потому что перед игроком открывается огромный мир под названием Тейват, поделённый на семь регионов — в каждом своя культура, персонажи и даже своя кухня.</p>
+			</div>
+		</div>
+		<div class="sliderblock">
+				<div class="slider">
+					<div><img src="{% static 'img/mond.png' %}" alt=""></div>
+					<div><img src="{% static 'img/li.png' %}" alt=""></div>
+					<div><img src="{% static 'img/inadzuma.png' %}" alt=""></div>
+					<div><img src="{% static 'img/sumeru.png' %}" alt=""></div>
+					<div><img src="{% static 'img/fontaine.png' %}" alt=""></div>
+				</div>
+		</div>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="{% static 'js/bxslider/dist/jquery.bxslider.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

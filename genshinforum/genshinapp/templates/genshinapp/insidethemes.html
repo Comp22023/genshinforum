@@ -1,0 +1,20 @@
+{% extends 'genshinapp/index.html' %}
+{% load static%}
+
+{% block title %} {% for i in themes %} {{i.themename}} {% endfor %} {% endblock title %}
+
+{% block container %}
+<div class="containertheme1">
+    <div class="theme1">
+        {% for i in themes%}
+        {{i.themename|safe}}
+        {% endfor %}
+    </div>
+    <div class="theme2">
+        {% for i in themes%}
+        {{i.themecontent|safe}}
+        {% endfor %}
+    </div>
+</div>
+{% endblock container %}
+{% block container1 %}{% endblock container1 %}

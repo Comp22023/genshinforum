@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static 'css/style.css'%}">
 	<link rel="stylesheet" href="{% static 'js/bxslider/dist/jquery.bxslider.css'%}">
-	<title>Форум по игре Genshin Impact | Главная страница</title>
+	<title>{% block title %}Форум по игре Genshin Impact | Главная страница{% endblock title %}</title>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
 		<div class="header_buts">
 			<ul>
 				<li>
-			<p> <a href="#">ТЕМЫ</a></p>
+			<p> <a href="{% url 'themes' %}">ТЕМЫ</a></p>
 				</li>
 			</ul>
 		</div>
@@ -44,16 +44,20 @@
 			</div>
 		</div>
 	</div>
+	{% block container %}
 	<div class="container">
 		<div class="maintxt">
 			<img src="{%static 'img/glogo.png'%}" alt="">
 		</div>
 		<div class="description">
+			{% block description %}
 			<div class="aboutforum">
-				<p>Genshin Impact, — это китайская условно-бесплатная онлайн-игра, которая в 2020 году разорвала интернет и стала настоящим подростковым хитом. По сюжету, брат и сестра застревают в волшебном мире и теряют друг друга. На этом и построена завязка: игроку нужно найти потерянного брата либо сестру. Но заниматься этим сразу необязательно. Почему? Потому что перед игроком открывается огромный мир под названием Тейват, поделённый на семь регионов — в каждом своя культура, персонажи и даже своя кухня.</p>
+				<p>Genshin Impact, — это китайская условно-бесплатная онлайн-игра, которая в 2020 году разорвала интернет и стала настоящим подростковым хитом. По сюжету, брат и сестра застревают в волшебном мире и теряют друг друга. На этом и построена завязка: игроку нужно найти потерянного брата либо сестру. Но заниматься этим сразу необязательно. Почему? Потому что перед игроком открывается огромный мир под названием Тейват, поделённый на семь регионов — в каждом своя культура, персонажи и даже своя кухня. На данный момент в игре доступны всего 5 регионов - Мондштадт, Ли Юэ, Инадзума, Сумеру и Фонтейн.</p>
 			</div>
+			{% endblock description %}
 		</div>
 		<div class="sliderblock">
+			{% block sliderblock %}
 				<div class="slider">
 					<div><img src="{% static 'img/mond.png' %}" alt=""></div>
 					<div><img src="{% static 'img/li.png' %}" alt=""></div>
@@ -61,7 +65,19 @@
 					<div><img src="{% static 'img/sumeru.png' %}" alt=""></div>
 					<div><img src="{% static 'img/fontaine.png' %}" alt=""></div>
 				</div>
+			{% endblock sliderblock %}
 		</div>
+	</div>
+	{% endblock container %}
+	<div class="container1">
+		{% block container1 %}
+		<div class="regtxt">
+			<p>Ты никогда не играл в геншин? Зарегистрируйся прямо сейчас!</p>
+		</div>
+		<div class="regimg">
+			<a href="https://genshin.hoyoverse.com/pre-register/"> <img src="{% static 'img/regimg.png' %}"></a>
+		</div>
+		{% endblock container1 %}
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

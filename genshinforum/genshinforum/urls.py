@@ -20,5 +20,8 @@ from genshinapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', index, name='main')
+    path('main/', index, name='main'),
+    path('themes/', themes, name='themes'),
+    path('reg/', reg, name='reg'),
+    path('themes/<int:theme_id>', themesinside, name='insidetheme'),
 ]

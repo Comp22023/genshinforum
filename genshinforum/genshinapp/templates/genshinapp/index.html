@@ -5,9 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static 'css/style.css'%}">
-	<link rel="stylesheet" href="{% static 'js/bxslider/dist/jquery.bxslider.css'%}">
 	<title>{% block title %}Форум по игре Genshin Impact | Главная страница{% endblock title %}</title>
-
+	<link rel="stylesheet" href="{% static 'js/bxslider/dist/jquery.bxslider.css'%}">
 </head>
 <body>
 	<div class="header">
@@ -57,7 +56,6 @@
 			{% endblock description %}
 		</div>
 		<div class="sliderblock">
-			{% block sliderblock %}
 				<div class="slider">
 					<div><img src="{% static 'img/mond.png' %}" alt=""></div>
 					<div><img src="{% static 'img/li.png' %}" alt=""></div>
@@ -65,7 +63,6 @@
 					<div><img src="{% static 'img/sumeru.png' %}" alt=""></div>
 					<div><img src="{% static 'img/fontaine.png' %}" alt=""></div>
 				</div>
-			{% endblock sliderblock %}
 		</div>
 	</div>
 	{% endblock container %}
@@ -79,9 +76,9 @@
 		</div>
 		{% endblock container1 %}
 	</div>
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="{% static 'js/bxslider/dist/jquery.bxslider.min.js' %}"></script>
-	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/slider.js' %}"></script>
 </body>
 </html>

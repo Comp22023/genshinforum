@@ -7,12 +7,13 @@
 <div class="containertheme1">
     <div class="theme1">
         {% for i in themes%}
-        {{i.themename|safe}}
+        <p>{{i.themename|safe}}</p>
         {% endfor %}
     </div>
     <div class="theme2">
-        {% for i in themes%}
-        {{i.themecontent|safe}}
+        {% for s in themes%}
+        {{s.themecontent|safe}}
+        <img src="/static/img/{{s.themeimg}}" alt="">
         {% endfor %}
     </div>
 </div>

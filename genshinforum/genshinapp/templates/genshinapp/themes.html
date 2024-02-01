@@ -52,21 +52,24 @@
 			<a class="myButton" href="#">Создать тему</a>
 		</div>
 			<div class="themeblock" id="themeblock">
-				<form action="" method="post">
+				<form action="" method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					<label for="themename" id="themename">Название темы:</label>
 					<input type="text" name="themename" placeholder="Название вашей темы">
 					<label for="themecontent">Содержание:</label>
 					<textarea name="themecontent" id="themecontent" cols="30" rows="10">
 					</textarea>
+					<label for="themeimg" id="themeimg">Загрузить изображение:</label>
+					<input name="themeimg" type="file">
 					<br>
     			<button class="button" onclick="sendText()">Submit text</button>
 				</form>
 			</div>
 				<div class="themebox">
-					{% for i in themes%}
+					{% for s in themes%}
 					<div class="themeсont">
-						<a href="{% url 'insidetheme' i.pk %}">{{i.themename}}</a>
+						<a href="{% url 'insidetheme' s.pk %}">{{s.themename}}</a>
+						<img src="/static/img/{{s.themeimg}}">
 					</div>
 					{% endfor %}
 				</div>

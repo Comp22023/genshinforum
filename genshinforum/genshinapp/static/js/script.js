@@ -1,4 +1,12 @@
 
+
+window.onload = () => {
+    CKEDITOR.replace("themecontent");
+  };
+
+  function sendText() {
+    window.parent.postMessage(CKEDITOR.instances.themecontent.getData(), "*");
+  };
     themeblock = document.getElementById("themeblock")
     btn = document.getElementById("open")
     cancel = document.getElementById("cancelthemeblock")
@@ -21,12 +29,5 @@
     document.getElementById("open").style.display = "block";
   };
 
-window.onload = () => {
-    CKEDITOR.replace("themecontent");
-  };
-
-  function sendText() {
-    window.parent.postMessage(CKEDITOR.instances.themecontent.getData(), "*");
-  };
 
 

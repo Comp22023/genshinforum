@@ -35,6 +35,13 @@
 				</li>
 			</ul>
 		</div>
+		<div class="header_buts">
+			<ul>
+				<li>
+			<p> <a href="{% url 'login' %}">ВХОД</a></p>
+				</li>
+			</ul>
+		</div>
 		<div class="profile">
 			<div class="profile_nick">
 				<p>ПСЕВДОНИМ</p>
@@ -43,6 +50,22 @@
 				<img src="{% static 'img/Pimon.png' %}" alt="Аватар пользователя">
 			</div>
 		</div>
+	</div>
+	<div class="regwindowcon">	
+		<div class="regwindow">
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit"> Зарегистрироваться :)</button>
+<!--			<label for="username">Логин:</label>-->
+<!--			<input type="text" name="username" id="username">-->
+<!--			<label for="email">E-mail:</label>-->
+<!--			<input type="email" name="email" id="email">-->
+<!--			<label for="password">Пароль</label>-->
+<!--			<input type="password" name="password" id="password">-->
+<!--			<button type="submit"> Зарегистрироваться :)</button>-->
+		</form>
+	</div>	
 	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -1,5 +1,5 @@
 """
-URL configuration for bookarchivemain project.
+URL configuration for genshinforum project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -15,14 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from genshinapp.views import *
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('genshinapp.urls')),
+    path('main/', index, name='main'),
+    path('themes/', themes, name='themes'),
+    path('reg/', reg, name='reg'),
+    path('login/', views.LoginUser.as_view(), name='login'),
+    path('logout/',logout_view,name='logout'),
+    path('themes/<int:theme_id>', themesinside, name='insidetheme'),
 ]
-
-
-admin.site.site_header = 'Панель администрирования'
-admin.site.index_title = 'Данные пользователей'
-

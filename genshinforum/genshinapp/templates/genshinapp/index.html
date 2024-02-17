@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css'%}">
 	<title>{% block title %}Форум по игре Genshin Impact | Главная страница{% endblock title %}</title>
 	<link rel="stylesheet" href="{% static 'js/bxslider/dist/jquery.bxslider.css'%}">
+	<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 </head>
 <body>
 	<div class="header">
@@ -16,7 +17,7 @@
 		<div class="header_buts">
 			<ul>
 				<li>
-					<p> <a href="#">ГЛАВНАЯ</a></p>
+					<p> <a href="{% url 'main' %}">ГЛАВНАЯ</a></p>
 				</li>
 			</ul>
 		</div>
@@ -27,20 +28,31 @@
 				</li>
 			</ul>
 		</div>
-		<div class="header_buts">
+
+		<div class="profile">
+			{% if user.is_authenticated %}
+			<div class="profile_nick">
+				<div class="profile_img">
+				<img src="{% static 'img/Pimon.png' %}" alt="Аватар пользователя">
+				</div>
+				<p><a href="">{{user.username}}</a></p> <a href="{% url 'logout' %}">Выйти</a>
+			</div>
+			{% else %}
+			<div class="header_buts">
 			<ul>
 				<li>
-			<p> <a href="#">РЕГИСТРАЦИЯ</a></p>
+			<p> <a href="{% url 'reg' %}"	>РЕГИСТРАЦИЯ</a></p>
 				</li>
 			</ul>
-		</div>
-		<div class="profile">
-			<div class="profile_nick">
-				<p>ПСЕВДОНИМ</p>
 			</div>
-			<div class="profile_img">
-				<img src="{% static 'img/Pimon.png' %}" alt="Аватар пользователя">
+			<div class="header_buts">
+			<ul>
+				<li>
+			<p> <a href="{% url 'login' %}">ВХОД</a></p>
+				</li>
+			</ul>
 			</div>
+			{% endif %}
 		</div>
 	</div>
 	{% block container %}
@@ -76,9 +88,11 @@
 		</div>
 		{% endblock container1 %}
 	</div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="{% static 'js/bxslider/dist/jquery.bxslider.min.js' %}"></script>
-	<script src="{% static 'js/slider.js' %}"></script>
+	{% block script %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="{% static 'js/bxslider/dist/jquery.bxslider.min.js' %}"></script>
+		<script src="{% static 'js/slider.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+	{% endblock script %}
 </body>
 </html>

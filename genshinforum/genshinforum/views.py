@@ -8,7 +8,7 @@ def index(request):
 
 def themes(request):
     if request.method == 'POST':
-        form = ThemesForm(request.POST, request.FILES)
+        form = ThemesForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('../themes')
@@ -24,9 +24,8 @@ def reg(request):
     if request.method == 'POST':
         form = RegForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)  # создание объекта без сохранения в БД
-            user.set_password(form.cleaned_data['password'])
-            user.save()
+            myform=form.save(commit=False)
+            myform.save()
             return redirect('../main')
     else:
         form = RegForm()
@@ -35,23 +34,9 @@ def reg(request):
     }
     return render(request, 'genshinapp/reg.html', data)
 def themesinside(request, theme_id):
-    if request.method == 'POST':
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            user_id = request.user.id
-            commentcontent = form.cleaned_data['commentcontent']
-            commentimg = form.cleaned_data['commentimg']
-            theme_id = theme_id
-            comments = Comments(commentcontent=commentcontent,user_id=user_id, theme_id=theme_id,commentimg=commentimg)
-            comments.save()
-            return redirect(f'/themes/{theme_id}')
-    else:
-        form = CommentForm()
     themes = Themes.objects.filter(id=theme_id)
-    comments = Comments.objects.filter(theme=theme_id)
     data = {
         'themes': themes,
-        'comments': comments,
     }
     return render(request,'genshinapp/insidethemes.html', data)
 
@@ -62,5 +47,6 @@ class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'genshinapp/login.html'
     extra_context = {'title': "Авторизация"}
+
     def get_success_url(self):
         return reverse_lazy('main')
